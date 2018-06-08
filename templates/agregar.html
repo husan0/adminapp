@@ -1,0 +1,89 @@
+﻿{% extends "base.html" %} 
+{% block content %}
+        <form action="/agregar" method="post" enctype="multipart/form-data">
+            <div class="form-group row">
+                <label for="text-input" class="col-2 col-form-label">Codigo de barras</label>
+                <div class="col-10">
+                    <input class="form-control" type="number" name="codigoBarras" min="1" id="codigoBarras" placeholder="ingrese un codigo de baras" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="number-input" class="col-2 col-form-label">Nombre producto</label>
+                <div class="col-10">
+                    <input class="form-control" type="text" name="nombreProducto" id="nombreProducto" placeholder="ingrese un nombre de producto" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="Select" class="col-2 col-form-label">Categoria</label>
+                <div class="col-10">
+                    <select class="form-control" id="categoria" name="categoria" required>
+                        <option value="" selected>Selecciona</option>
+                        {% for c in listaC %}
+                        <option value="{{ c.id_categoria }}"></option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="Select" class="col-2 col-form-label">Estado</label>
+                <div class="col-10">
+                    <select class="form-control" id="estadoProducto" name="estadoProducto" required>
+                        <option value="" selected>Selecciona</option>
+                        {% for row in listaE %}
+                        <option value=""></option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="number-input" class="col-2 col-form-label">Detalle producto</label>
+                <div class="col-10">
+                    <input class="form-control" type="text" name="detalle" id="detalle" placeholder="ingrese el detalle del producto" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="InputFile" class="col-2 col-form-label">seleccione una foto</label>
+                <div class="col-10">
+                    <input type="file" class="form-control-file" id="file" name="file" aria-describedby="fileHelp" required>
+                    <small id="fileHelp" class="form-text text-muted">Los tipos de archivos soportados son JPG , PNG</small>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="Select" class="col-2 col-form-label">Bodega</label>
+                <div class="col-10">
+                    <select class="form-control" id="bodega" name="bodega" required>
+                        <option value="" selected>Selecciona</option>
+                        {% for row in listaB %}
+                        <option value="{{ row. }}">{{ row }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="number-input" class="col-2 col-form-label">Cantidad producto</label>
+                <div class="col-10">
+                    <input class="form-control" type="number" name="stock" id="stock" min="1" placeholder="ingrese la cantidad del producto" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="number-input" class="col-2 col-form-label">Precio Normal</label>
+                <div class="col-10">
+                    <input class="form-control" type="number" name="pNormal" id="pNormal" min="1" placeholder="ingrese el precio Normal del producto" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="number-input" class="col-2 col-form-label">Precio Oferta</label>
+                <div class="col-10">
+                    <input class="form-control" type="number" name="pOferta" id="pOferta" min="1" placeholder="ingrese el precio oferta del producto" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="number-input" class="col-2 col-form-label">Precio Tarjeta</label>
+                <div class="col-10">
+                    <input class="form-control" type="number" name="pTarjeta" id="pTarjeta" min="1" placeholder="ingrese el precio Tarjeta del producto" required>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Agregar</button>
+        </form>
+        
+{% endblock %}

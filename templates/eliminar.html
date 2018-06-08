@@ -1,0 +1,12 @@
+{% extends "base.html" %} 
+{% block content %}
+<form action="/eliminarProducto" method="POST">
+    <div class="form-group row">
+        <label for="text-input" class="col-2 col-form-label">Codigo de barras</label>
+        <div class="col-10">
+            <input class="form-control" type="number" name="codigoBarras" id="codigoBarras" min="1" placeholder="ingrese un codigo de baras" required>
+        </div>
+    </div>
+    <button class="btn btn-primary" type="submit">Eliminar</button>
+</form>
+{% endblock %}          

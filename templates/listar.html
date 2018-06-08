@@ -1,0 +1,40 @@
+{% extends "base.html" %} 
+{% block content %}
+  <div class="container">
+    <div class="section">
+      <div class="row">
+        <div class="col-md-12 col-sm-12">
+          <table class="table table-bordered">
+                <tr>
+                    <th>Codigo de Barras</th>
+                    <th>Nombre Producto</th>
+                    <th>Categoria</th>
+                    <th>Tipo Producto</th>
+                    <th>Stock</th>
+                    <th>Bodega</th>
+                    <th>Precio</th>
+                    <th>Tipo Precio</th>
+                    <th>Detalle</th>
+                    <th>Foto</th>
+                </tr>
+                {% for row in lista %}
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td><img src="static/Uploads/" alt="" height="100" width="100"></td>
+                </tr>
+                {% endfor %}
+            </table>
+            </div>
+        </div>
+    </div>
+  </div>
+{% endblock %}
+ 
