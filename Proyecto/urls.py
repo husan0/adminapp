@@ -19,6 +19,7 @@ from django.conf.urls import url
 from web.views import *
 
 urlpatterns = [
+    #carga
     url(r'^$', login, name='login'),
     url(r'^index', index, name='index'),
     url(r'^logout', logout, name='logout'),
@@ -27,4 +28,9 @@ urlpatterns = [
     url(r'^search', search, name='search'),
     url(r'^update', update, name='update'),
     url(r'^delete', delete, name='delete'),
+    #ejecucion
+    url(r'^agregar', addProduct, name='agregar'),
+    url(r'^eliminar', delProducts, name='eliminar'),
+    url(r'^buscar', buscarProducto, name='buscar'),
+    url(r'^modificar', buscarProductoModificar, name='buscarmodificar'),
 ]

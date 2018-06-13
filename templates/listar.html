@@ -1,5 +1,6 @@
 {% extends "base.html" %} 
 {% block content %}
+    {% load staticfiles %}
   <div class="container">
     <div class="section">
       <div class="row">
@@ -9,26 +10,28 @@
                     <th>Codigo de Barras</th>
                     <th>Nombre Producto</th>
                     <th>Categoria</th>
-                    <th>Tipo Producto</th>
                     <th>Stock</th>
-                    <th>Bodega</th>
                     <th>Precio</th>
                     <th>Tipo Precio</th>
+                    <th>Bodega</th>
+                    <th>Tipo Bodega</th>
+                    <th>Estado</th>
                     <th>Detalle</th>
                     <th>Foto</th>
                 </tr>
-                {% for row in lista %}
+                {% for row in productos %}
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><img src="static/Uploads/" alt="" height="100" width="100"></td>
+                    <td>{{ row.0 }}</td>
+                    <td>{{ row.1 }}</td>
+                    <td>{{ row.2 }}</td>
+                    <td>{{ row.3 }}</td>
+                    <td>{{ row.4 }}</td>
+                    <td>{{ row.5 }}</td>
+                    <td>{{ row.6 }}</td>
+                    <td>{{ row.7 }}</td>
+                    <td>{{ row.8 }}</td>
+                    <td>{{ row.9 }}</td>
+                    <td><img src="{% static 'Uploads' %}/{{ row.10 }}" alt="" height="100" width="100"></td>
                 </tr>
                 {% endfor %}
             </table>

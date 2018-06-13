@@ -1,12 +1,6 @@
 ﻿{% extends "base.html" %} 
 {% block content %}
-    <style>
-        img{
-            height:40%;
-            width:40%;
-        }
-    </style>
-        <form action="/buscar" method="post">
+        <form action="{% url 'buscar'%}" method="post">{% csrf_token %}
             <div class="form-group row">
                 <label for="text-input" class="col-2 col-form-label">Codigo de barras</label>
                 <div class="col-10">
@@ -16,34 +10,46 @@
             <button class="btn btn-primary" type="submit">Buscar</button>
         </form>
         <br>
-        <table class="table table-bordered">
-            <tr>
-                <th>Codigo de Barras</th>
-                <th>Nombre Producto</th>
-                <th>Categoria</th>
-                <th>Tipo Producto</th>
-                <th>Stock</th>
-                <th>Bodega</th>
-                <th>Precio</th>
-                <th>Tipo Precio</th>
-                <th>Detalle</th>
-                <th>Foto</th>
-            </tr>
-            {% for row in lista %}
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td><img src="static/Uploads/" alt="" height="100" width="100"></td>
-            </tr>
-            {% endfor %}
-        </table>
-        <br>
+            {% load staticfiles %}
+          <div class="container">
+            <div class="section">
+              <div class="row">
+                <div class="col-md-12 col-sm-12">
+                  <table class="table table-bordered">
+                        <tr>
+                            <th>Codigo de Barras</th>
+                            <th>Nombre Producto</th>
+                            <th>Categoria</th>
+                            <th>Stock</th>
+                            <th>Precio</th>
+                            <th>Tipo Precio</th>
+                            <th>Bodega</th>
+                            <th>Tipo Bodega</th>
+                            <th>Estado</th>
+                            <th>Detalle</th>
+                            <th>Foto</th>
+                            <th>Activo</th>
+                        </tr>
+                        {% for row in productos %}
+                        <tr>
+                            <td>{{ row.0 }}</td>
+                            <td>{{ row.1 }}</td>
+                            <td>{{ row.2 }}</td>
+                            <td>{{ row.3 }}</td>
+                            <td>{{ row.4 }}</td>
+                            <td>{{ row.5 }}</td>
+                            <td>{{ row.6 }}</td>
+                            <td>{{ row.7 }}</td>
+                            <td>{{ row.8 }}</td>
+                            <td>{{ row.9 }}</td>
+                            <td><img src="{% static 'Uploads' %}/{{ row.10 }}" alt="" height="100" width="100"></td>
+                            <td>{{ row.11 }}</td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                    </div>
+                </div>
+            </div>
+          </div>
 {% endblock %}
 

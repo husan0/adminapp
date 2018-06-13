@@ -1,82 +1,121 @@
 {% extends "base.html" %} 
 {% block content %}
-<form class="form-inline" action="/buscarModificar" method="post">
-    <input class="form-control mr-sm-2" type="search" name="nombre" id="nombre" placeholder="Ingrese un codigo o nombre" aria-label="Search" required>
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+    {% load staticfiles %}
+<form action="{% url 'buscarmodificar'%}" method="post">{% csrf_token %}
+    <div class="form-group row">
+        <label for="text-input" class="col-2 col-form-label">Codigo de barras</label>
+        <div class="col-10">
+            <input class="form-control" type="number" name="codigoBarras" id="codigoBarras" placeholder="ingrese un codigo de baras" required>
+        </div>
+    </div>
+    <button class="btn btn-primary" type="submit">Buscar</button>
 </form>
 <br>
-<form class="col s12" action="/modificarProductos" method="POST" enctype="multipart/form-data">
-    <div class="form-group">
-        <div class="input-field col s6">
-            Nombre Producto:
-            <input type="text" class="form-control" name="nombre" id="nombre" value="{{nombre}}" required>
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="input-field col s6">
-            Stock:
-            <input type="number" class="form-control" name="stock" id="stock" value="{{stock}}" required>
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="input-field col s6">
-            Precio:
-            <input type="number" class="form-control" name="precio" id="precio" value="{{precio}}" required>
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="input-field col s6">
-            Categoria Producto:
-            <div class="input-field">
-                <select name="categoria_producto" class="form-control" id="categoria_producto" required>
-                    {% for row in categoria_producto %} {% if row[0]==categoria: %}
-                    <option value="{{row[0]}}" selected>{{row[1]}}</option>
-                    {% else %}
-                    <option value="{{row[0]}}">{{row[1]}}</option>
-                    {% endif %} {% endfor %}
-                </select>
+{% for rowB in productos %}
+<form class="col s12" action= method="POST" enctype="multipart/form-data">
+            <div class="form-group row">
+                <label for="text-input" class="col-2 col-form-label">Codigo de barras</label>
+                <div class="col-10">
+                    <input class="form-control" type="number" name="codigoBarras" min="1" max="99999999999" id="codigoBarras" value="{{ rowB.0 }}" placeholder="ingrese un codigo de baras" required>
+                </div>
             </div>
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="input-field col s6">
-            Tipo Producto:
-            <div class="input-field">
-                <select name="tipo_producto" class="form-control" id="tipo_producto" required>
-                    {% for row in tipo_producto %} {% if row[0]==tipo: %}
-                    <option value="{{row[0]}}" selected>{{row[1]}}</option>
-                    {% else %}
-                    <option value="{{row[0]}}">{{row[1]}}</option>
-                    {% endif %} {% endfor %}
-                </select>
+            <div class="form-group row">
+                <label for="number-input" class="col-2 col-form-label">Nombre producto</label>
+                <div class="col-10">
+                    <input class="form-control" type="text" name="nombreProducto" maxlength="100" id="nombreProducto" value="{{ rowB.1 }}" placeholder="ingrese un nombre de producto" required>
+                </div>
             </div>
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="input-field col s6">
-            Detalle:
-            <textarea name="detalle_producto" class="form-control" id="detalle_producto" cols="10" rows="3" required>{{detalle}}</textarea>
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="InputFile">Imagen:</label>
-        <br>
-        <input type="image" src="../{{imagen}}" width="100" height="100">
-        <input type="file" class="form-control-file" id="file" name="file" aria-describedby="fileHelp">
-        <small id="fileHelp" class="form-text text-muted">Los tipos de archivos soportados son JPG , PNG</small>
-    </div>
+            <div class="form-group row">
+                <label for="Select" class="col-2 col-form-label">Categoria</label>
+                <div class="col-10">
+                    <select class="form-control" id="categoria" name="categoria" required>
+                    <option value="" selected>Selecciona</option>
+                    {% for row in ListaC %} {% if row.nombre_categoria == rowB.2 %}
+                    <option value="{{row.id_categoria}}" selected>{{row.nombre_categoria}}</option>
+                    {% else %}
+                    <option value="{{row.id_categoria}}">{{row.nombre_categoria}}</option>
+                    {% endif %} {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="Select" class="col-2 col-form-label">Estado</label>
+                <div class="col-10">
+                    <select class="form-control" id="estadoProducto" name="estadoProducto" required>
+                    <option value="" selected>Selecciona</option>
+                    {% for row in ListaE %}{% if row.nombre_tipo == rowB.8 %}
+                    <option value="{{row.id_estado_producto}}" selected>{{row.nombre_tipo}}</option>
+                    {% else %}
+                    <option value="{{row.id_estado_producto}}">{{row.nombre_tipo}}</option>
+                    {% endif %} {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="number-input" class="col-2 col-form-label">Detalle producto</label>
+                <div class="col-10">
+                    <input class="form-control" type="text" name="detalle" id="detalle" maxlength="1000" value="{{ rowB.9 }}" placeholder="ingrese el detalle del producto" required>
+                </div>
+            </div>
+            <img src="{% static 'Uploads' %}/{{ rowB.10 }}" alt="" height="100" width="100">
+            <div class="form-group row">
+                <label for="InputFile" class="col-2 col-form-label">seleccione una foto</label>
+                <div class="col-10">
+                    <input type="file" class="form-control-file" id="file" name="file" aria-describedby="fileHelp" required>
+                    <small id="fileHelp" class="form-text text-muted">Los tipos de archivos soportados son JPG , PNG</small>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="Select" class="col-2 col-form-label">Bodega</label>
+                <div class="col-10">
+                    <select class="form-control" id="bodega" name="bodega" required>
+                        <option value="" selected>Selecciona</option>
+                        {% for row in listaB %}{% if row.direccion_bodega == rowB.6 %}
+                        <option value="{{row.id_bodega}}" selected>{{row.direccion_bodega}}</option>
+                        {% else %}
+                        <option value="{{row.id_bodega}}">{{row.direccion_bodega}}</option>
+                        {% endif %} {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="number-input" class="col-2 col-form-label">Cantidad producto</label>
+                <div class="col-10">
+                    <input class="form-control" type="number" name="stock" id="stock" value="{{ rowB.3 }}" min="1" placeholder="ingrese la cantidad del producto" required>
+                </div>
+            </div>
+            {% for row in listaD %}{% if row.codigo_de_barras == rowB.0 %}
+            <div class="form-group row">
+                <label for="number-input" class="col-2 col-form-label">Precio </label>
+                <div class="col-10">
+                    <input class="form-control" type="number" name="pNormal" id="pNormal" min="1" value="{{ row.precio }}" placeholder="ingrese el precio Normal del producto" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="number-input" class="col-2 col-form-label">Precio Oferta</label>
+                <div class="col-10">
+                    <input class="form-control" type="number" name="pOferta" id="pOferta" value="{{ row.precio }}" min="1" max="99999999999" placeholder="ingrese el precio oferta del producto" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="number-input" class="col-2 col-form-label">Precio Tarjeta</label>
+                <div class="col-10">
+                    <input class="form-control" type="number" name="pTarjeta" id="pTarjeta" value="{{ row.precio }}" min="1" max="99999999999" placeholder="ingrese el precio Tarjeta del producto" required>
+                </div>
+            </div>
+            {% endif %}{% endfor %}
     <div class="form-group">
         <div class="input-field col s6">
             Activo:
             <br>
-            {% if activo==0: %}
-                <input type="radio" name="activo" id="activo" value="{{activo}}" checked="true" required> No activo
+            {% if rowB.11 == 0 %}
+                <input type="radio" name="activo" id="activo" value="0" checked="true" required> No activo
                 <br>
                 <input type="radio" name="activo" id="activo" value="1" required>Activo
             {% else %}
                 <input type="radio" name="activo" id="activo" value="0" required>No activo
                 <br>
-                <input type="radio" name="activo" id="activo" value="{{activo}}" checked="true" required>Activo
+                <input type="radio" name="activo" id="activo" value="1" checked="true" required>Activo
             {% endif %}
         </div>
     </div>
@@ -86,6 +125,8 @@
             </div>
     </div>
 </form>
+
+{% endfor %}
 {% endblock %}
 
   

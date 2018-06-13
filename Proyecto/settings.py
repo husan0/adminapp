@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
+
+import django_heroku
 from django.contrib.messages import constants as messages
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -30,7 +32,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -76,11 +77,11 @@ WSGI_APPLICATION = 'Proyecto.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'heroku_b5f4bd0f80d05ae',
-        'USER': 'b3aff38ecfb460',
-        'PASSWORD': '4829efaf',
-        'HOST': 'us-cdbr-iron-east-04.cleardb.net',
-        'PORT': '3306',
+        'NAME': 'heroku_b5f4bd0f80d05ae',#
+        'USER': 'b3aff38ecfb460',#
+        'PASSWORD': '4829efaf',#
+        'HOST': 'us-cdbr-iron-east-04.cleardb.net',#
+        'PORT': 3306,
     }
 }
 
@@ -128,5 +129,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'Proyecto/static'),
+)
 
-
+django_heroku.settings(locals())

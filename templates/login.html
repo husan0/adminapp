@@ -58,14 +58,6 @@
 
     </style>
 </head>
-{% for message in messages %}
-  <div class="alert {{ message.tags }} alert-dismissible" role="alert">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
-    {{ message }}
-  </div>
-{% endfor %}
 <body>
     <main>
         <nav class="navbar navbar-expand-md navbar-dark bg-dark">
@@ -77,6 +69,14 @@
             </div>
         </nav>
             <div class="container">
+                {% for message in messages %}
+                  <div class="alert {{ message.tags }} alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                    {{ message }}
+                  </div>
+                {% endfor %}
                 <section id="login">
                     <div class="row">
                         <div class="col 12">
