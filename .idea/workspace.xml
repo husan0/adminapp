@@ -2,32 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6a51cce0-6a03-41c1-b9c1-a4854c07b6bf" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/juani.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/migrations/0002_alerta_authgroup_authgrouppermissions_authpermission_authuser_authusergroups_authuseruserpermissions.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/migrations/0003_estadoenvio_preciodespacho_seguimiento_tipodeentrega.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/static/css/base.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Proyecto/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Proyecto/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/agregar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/agregar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/buscar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/buscar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/eliminar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/eliminar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/listar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/listar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/modificar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/modificar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/producto.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/producto.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/web/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/static/Uploads/20374561_10216175371363414_1260958356996732361_n.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/static/Uploads/26730838_10214500180879850_4610520477107693820_n.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/static/Uploads/26991847_414235829013273_8197657464031658309_n.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/static/Uploads/28783697_1575658342552659_4830106047689523200_n.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/static/Uploads/Sin_titulo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/static/Uploads/descarga.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/static/Uploads/empty.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/web/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -58,7 +33,7 @@
       <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Proyecto/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
+            <state relative-caret-position="1128">
               <caret line="135" lean-forward="true" selection-start-line="135" selection-end-line="135" />
               <folding>
                 <element signature="e#309#318#0" expanded="true" />
@@ -169,7 +144,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="10" />
     <option name="y" value="20" />
     <option name="width" value="1346" />
@@ -307,8 +282,8 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.32954547" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49924356" weight="0.6883117" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.38798702" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1633888" />
+      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.38798702" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1633888" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="4" />
       <window_info anchor="right" id="SciView" order="3" weight="0.32980332" />
@@ -484,13 +459,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Procfile">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -637,9 +605,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Proyecto/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
+        <state relative-caret-position="1128">
           <caret line="135" lean-forward="true" selection-start-line="135" selection-end-line="135" />
           <folding>
             <element signature="e#309#318#0" expanded="true" />
